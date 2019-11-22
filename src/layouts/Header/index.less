@@ -1,0 +1,256 @@
+// 头部样式
+.header {
+    position: relative;
+    background: #ffffff !important;
+    min-width: 1200px;
+
+    .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+        height: 74px;
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        // 头部左边样式
+        .logo {
+            display: flex;
+            float: left;
+            color: #47BCC6;
+            font-size: 15px;
+            height: 74px;
+            align-items: center;
+
+            .logoImg {
+                width: 57px;
+                height: 50px;
+                //background: #9B9B9B;
+                margin-right: 7px;
+
+                img {
+                    width: 57px;
+                    height: 50px;
+                }
+            }
+
+            .logoTitle {
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    margin-block-start: 0;
+                    margin-bottom: 0;
+                }
+
+                p:first-child {
+                    color: #47BCC6;
+                    font-size: 15px;
+                    font-family: PingFangSC-Thin, serif;
+                }
+
+                p:last-child {
+                    color: #47BCC6;
+                    font-size: 18px;
+                    font-family: PingFangSC-Regular, serif;
+                }
+            }
+        }
+    }
+
+    // 头部右边样式
+    .headerRight {
+        float: right;
+        display: flex;
+        height: 74px;
+        align-items: center;
+
+        div {
+            margin-left: 40px;
+
+            >span {
+                display: block;
+                height: 28px;
+                cursor: pointer;
+
+                i {
+                    font-size: 28px;
+                    color: #D8D8D8;
+                }
+            }
+
+        }
+
+        .uploadMedia {
+            a {
+                display: block;
+            }
+        }
+
+        .collector {
+            //sup{
+            //  background-color: #47BCC6;
+            //  color: #fff;
+            //  box-shadow: 0 0 0 1px #d9d9d9 inset;
+            //}
+        }
+
+        span {
+            display: inline-block;
+        }
+
+        .face {
+            span {}
+        }
+
+    }
+
+
+}
+
+// shoppingHover样式
+.shoppingHover {
+    p {
+        font-size: 20px;
+        cursor: pointer;
+        color: #9B9B9B;
+
+        &:hover {
+            color: #47BCC6;
+
+            i {
+                color: #47BCC6;
+            }
+        }
+
+        i {
+            margin-right: 16px;
+            color: #9B9B9B;
+            font-size: 25px;
+        }
+    }
+}
+
+// 用户hover效果样式
+.faceHover {
+    p {
+        font-size: 20px;
+        cursor: pointer;
+        margin-bottom: 15px;
+
+        a {
+            color: #9B9B9B;
+        }
+
+        &:hover {
+            a {
+                color: #47BCC6;
+            }
+
+            i {
+                color: #47BCC6;
+
+            }
+        }
+
+        i {
+            margin-right: 5px;
+            color: #9B9B9B;
+            font-size: 28px;
+        }
+    }
+
+    // 退出登录
+    .logout {
+        margin-top: 49px;
+        margin-left: 10px;
+        border: 1px solid rgba(216, 216, 216, 1);
+        width: 120px;
+        height: 36px;
+        display: block;
+        line-height: 36px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 20px;
+        color: #D8D8D8;
+        background-color: #FFF;
+    }
+}
+
+// 样式隐藏
+.hide {
+    display: none;
+}
+
+div {
+    :global {
+        .ant-modal-body {
+            position: relative;
+        }
+    }
+}
+
+// 添加收藏夹样式
+.modalBox {
+
+    //position: relative;
+    p {
+        border-bottom: 1px solid #f0f5ff;
+        font-size: 25px;
+        padding-bottom: 10px;
+    }
+
+    // 新建收藏夹
+    .newCollection {
+        position: absolute;
+        bottom: -35px;
+        left: 25px;
+        cursor: pointer;
+        display: block;
+        z-index: 100;
+        font-size: 18px;
+        color: #9B9B9B;
+
+        :global {
+            .ant-form-item-children {
+                display: flex;
+            }
+        }
+    }
+
+    .addNewCollection {
+        width: 544px;
+        height: 185px;
+        background: #f0f2f5;
+        border-radius: 10px;
+        position: absolute;
+        z-index: 100;
+        top: 130px;
+        left: -18px;
+        padding: 39px 0 0 17px;
+
+        p {
+            font-size: 25px;
+        }
+
+        button {
+            width: 103px;
+            height: 36px;
+            background: #D8D8D8;
+            border-radius: 20px;
+        }
+    }
+}
+
+
+.menu {
+    :global(.anticon) {
+        margin-right: 8px;
+    }
+
+    :global(.ant-dropdown-menu-item) {
+        width: 160px;
+    }
+
+}
