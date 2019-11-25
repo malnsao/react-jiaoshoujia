@@ -32,12 +32,6 @@ module.exports = merge(common, {
             cacheGroups: {  // 缓存组。缓存组的属性除上面所有属性外，还有test, priority,
                 vendors: {// 将第三方模块提取出来
                     test: /[\\/]node_modules[\\/]/,
-                    // test: (module, chunks) => {
-                    //     // 将node_modules 目录下的依赖统一打包进入vendor中
-                    //     if (/[\\/]node_modules[\\/]/.test(module.context)) {
-                    //         return true;
-                    //     }
-                    // },
                     priority: -10, // 缓存组打包的先后优先级
                     name: 'vendor',
                     

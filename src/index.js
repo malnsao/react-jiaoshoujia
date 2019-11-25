@@ -2,18 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {
-    BrowserRouter as Router,
-    HashRouter
-} from "react-router-dom";
-
 import './index.less'
-
-import routeConfig from './router';
-
-import store from './store.js';
-import { Provider } from 'react-redux';
-
 
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 

@@ -24,7 +24,7 @@ npm install --save-dev file-loader
 npm install --save-dev file-loader
 ```
 
-# 4.自动生成html，清理 /dist 文件夹
+# 4.自动生成html，清理 /dist 文件夹，css压缩，打包
 
 ```
 npm install html-webpack-plugin --save-dev
