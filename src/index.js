@@ -8,14 +8,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 import BasicLayout from './layouts/BasicLayout'
 
-
-ReactDOM.render(
-    (
-        <BasicLayout />
-        
-    ),
-    document.getElementById('root')
-)
+ReactDOM.render(<BasicLayout />,document.getElementById('root'))
 
 import('./async').then(({default:text}) => {
     console.log(text)
@@ -25,6 +18,15 @@ import('./async1').then(({ default: text }) => {
     console.log(text)
 })
 
+import profile from '../mock/data/profile.js';
+
+console.log(profile)
+
+// import foo from '../mock/data/profile';
+
+// foo()
+
+// console.log(foo)
 
 // import './asscts/1.png'
 

@@ -97,12 +97,16 @@ config.module = {
             //         },
             //     }
             // ],
-            exclude: [
-                path.join(process.cwd(), 'node_modules')
+            exclude: [// 表示哪些目录中的 .js 文件不要进行 babel-loader
+                path.join(process.cwd(), 'node_modules') 
             ],
             query: {
                 presets: ['es2015', 'react', 'stage-0'],
-            }
+            },
+            // include:[
+            //     path.join(process.cwd(), 'src'),
+            //     path.join(process.cwd(), 'mock') 
+            // ]
         }
     ]
 };

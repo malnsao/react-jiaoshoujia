@@ -92,5 +92,8 @@ module.exports = merge(common, {
             },
         ]
     },
+    // externals:{
+
+    // },
     mode:'production'
 });

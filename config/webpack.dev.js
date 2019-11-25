@@ -1,7 +1,12 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
-const apiMocker = require('webpack-api-mocker')
+const apiMocker = require('mocker-api');
+const webpack = require('webpack');
+
+// 获取是否开启反向代理的变量
+const isProxy = process.env.PROXY === 'true';
+
 module.exports = merge(common, {
     devtool: 'inline-source-map',// 使用 source map
     devServer: {
@@ -11,15 +16,26 @@ module.exports = merge(common, {
         historyApiFallback: true,   // 解决手动输入url问题
         // lazy: true,
         // filename: "index.js",
-        // host: "0.0.0.0",
+        host: "0.0.0.0",
         open: true,
         overlay: true, // 编译出现错误时，将错误直接显示在页面上
-        // port: 8080,
+        port: 8080,
         // proxy: {},// 代理
         stats: 'errors-only',
         // useLocalIp: true
+        progress: true, // 显示打包进度
         before(app) {
-            apiMocker(app, path.resolve(process.cwd(), "mock/api.js"))
+            if (!isProxy) {
+                console.log('11111')
+                apiMocker(app, path.resolve(process.cwd(), "mock/api.js"), {
+                    proxy: {},
+                    changeHost: true,
+                    watchContentBase: true
+                })
+            } else {
+                console.log('22222')
+            }
+            
         }
     },
     module:{
@@ -54,5 +70,12 @@ module.exports = merge(common, {
             },
         ]
     },
+    plugins: [
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: process.env.NODE_ENV,
+        //     }
+        // }),
+    ],
     mode:'development'
 });
