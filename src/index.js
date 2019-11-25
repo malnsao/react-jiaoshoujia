@@ -18,9 +18,10 @@ import('./async1').then(({ default: text }) => {
     console.log(text)
 })
 
-import profile from '../mock/data/profile.js';
+// import profile from '../mock/data/profile.js';
 
-console.log(profile)
+// console.log(profile)
+
 
 // import foo from '../mock/data/profile';
 

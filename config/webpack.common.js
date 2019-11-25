@@ -107,6 +107,10 @@ config.module = {
             //     path.join(process.cwd(), 'src'),
             //     path.join(process.cwd(), 'mock') 
             // ]
+        },
+        {
+            test: /\.ts$/,
+            use: 'ts-loader',
         }
     ]
 };
