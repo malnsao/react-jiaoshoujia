@@ -4,11 +4,23 @@ import ReactDOM from 'react-dom'
 
 import './index.less'
 
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
-import BasicLayout from './layouts/BasicLayout'
+// import BasicLayout from './layouts/BasicLayout'
 
-ReactDOM.render(<BasicLayout />,document.getElementById('root'))
+import {
+    BrowserRouter as Router,
+    HashRouter
+} from "react-router-dom";
+
+import routeConfig from '@/router';
+
+
+ReactDOM.render((
+    <Router>
+        {routeConfig}
+    </Router>
+),document.getElementById('root'))
 
 import('./async').then(({default:text}) => {
     console.log(text)

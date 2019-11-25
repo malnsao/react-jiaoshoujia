@@ -1,60 +1,26 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-const asyncComponent = loadComponent => (
-
-    class AsyncComponent extends React.Component {
-        constructor(...args) {
-            super(...args);
-
-            this.state = {
-                Component: null,
-            };
-
-            this.hasLoadedComponent = this.hasLoadedComponent.bind(this);
-        }
-        componentWillMount() {
-            if (this.hasLoadedComponent()) {
-                return;
-            }
-
-            loadComponent()
-                .then(module => module.default ? module.default : module)
-                .then(Component => {
-                    this.setState({
-                        Component
-                    });
-                })
-                .catch(error => {
-                    /*eslint-disable*/
-                    console.error('cannot load Component in <AsyncComponent>');
-                    /*eslint-enable*/
-                    throw error;
-                })
-        }
-        hasLoadedComponent() {
-            return this.state.Component !== null;
-        }
-        render() {
-            const {
-                Component
-            } = this.state;
-
-            return (Component) ? <Component {...this.props} /> : null;
-        }
-    }
-);
+import asyncComponent from './asyncComponent'
 
 let routes = [
     {
         path: '/',//首页默认加载的页面
-        ComponentName: asyncComponent(() => import("@/routes/albumPhoto/index")),
+        ComponentName: asyncComponent(() => import(/* webpackChunkName: "albumPhoto" */"@/routes/albumPhoto/index")),
         exact: true, //是否为严格模式
     },
     {
         path: '/bookmark',//首页默认加载的页面
         ComponentName: asyncComponent(() => import("@/routes/bookMark/index")),
+        routes:[
+            
+            
+        ]
     },
+    {
+        path: '/file',//首页默认加载的页面
+        ComponentName: asyncComponent(() => import("@/routes/bookMark/file/index")),
+    }
     
 ];
 
