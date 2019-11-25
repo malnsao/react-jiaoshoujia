@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
-// const apiMocker = require('webpack-api-mocker')
+const apiMocker = require('webpack-api-mocker')
 module.exports = merge(common, {
     devtool: 'inline-source-map',// 使用 source map
     devServer: {
@@ -18,9 +18,9 @@ module.exports = merge(common, {
         // proxy: {},// 代理
         stats: 'errors-only',
         // useLocalIp: true
-        // before(app) {
-        //     apiMocker(app, path.resolve('mock/api.js'))
-        // }
+        before(app) {
+            apiMocker(app, path.resolve(process.cwd(), "mock/api.js"))
+        }
     },
     module:{
         rules:[

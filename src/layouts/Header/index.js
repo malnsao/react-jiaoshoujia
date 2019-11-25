@@ -19,7 +19,15 @@ class Header extends React.Component {
         }
     }
 
-    shoppingHover(){}
+    shoppingHover(){
+        fetch('/app/user/profile')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson);
+            });
+    }
 
     shoppingNumber(){}
 
