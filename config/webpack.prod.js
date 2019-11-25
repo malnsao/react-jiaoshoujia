@@ -1,15 +1,15 @@
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin(),
-        new UglifyJSPlugin(),
         // new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
@@ -36,18 +36,18 @@ module.exports = merge(common, {
                     name: 'vendor',
                     
                 },
-                styles: {
-                    name: 'index',
-                    test: /\.(css|less)$/,
-                    chunks: 'all',
-                    enforce: true,
-                },
-                async: { // 为异步代码打成一个公共包(在app.js修改一下代码,重新打包,不影响此包hash)
-                    name: 'async',
-                    chunks: 'async', // 为异步代码打包
-                    minChunks: 1,
-                    minSize: 0
-                },
+                // styles: {
+                //     name: 'index',
+                //     test: /\.(css|less)$/,
+                //     chunks: 'all',
+                //     enforce: true,
+                // },
+                // async: { // 为异步代码打成一个公共包(在app.js修改一下代码,重新打包,不影响此包hash)
+                //     name: 'async',
+                //     chunks: 'async', // 为异步代码打包
+                //     minChunks: 1,
+                //     minSize: 0
+                // },
                 default: {
                     minChunks: 2,
                     priority: -20,
@@ -55,9 +55,13 @@ module.exports = merge(common, {
                 }
             }
         },
-
+        minimize: true,
         minimizer: [     
             new OptimizeCSSAssetsPlugin({}),
+            new TerserPlugin({
+                // 并发运行的默认数量: os.cpus().length - 1
+                parallel: true
+            }),
         ],
     },
     module: {
