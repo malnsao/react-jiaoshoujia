@@ -8,9 +8,8 @@ class File extends PureComponent {
     render() {
         return (
             <div>
-                <ul>
-                    <li>二级路由</li>
-                </ul>
+                二级路由
+                <h3>{match.params.id}</h3>
             </div>
         )
     }

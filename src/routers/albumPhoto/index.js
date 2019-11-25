@@ -2,20 +2,20 @@ import React, { PureComponent } from 'react';
 
 import styles from './index'
 
-class BookMark extends PureComponent {
+class Album extends PureComponent {
     constructor(props) {
         super(props);
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
-                <ul>
-                    <li>456</li>
-                </ul>
+                {this.props.children}
+                123
             </div>
         )
     }
 }
 
-export default BookMark
+export default Album
