@@ -5,6 +5,8 @@
         }],
         "react",
         "stage-3"
+        // "@babel/env", 
+        // "@babel/react"
     ],
     "plugins": [
         "dynamic-import-webpack",

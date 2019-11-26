@@ -38,6 +38,7 @@ config.entry = {
     index: './src/index.js',
 }
 
+
 config.output = {
     filename: '[name].js',
     chunkFilename: '[id].async.js',

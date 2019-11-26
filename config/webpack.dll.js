@@ -3,8 +3,7 @@ const webpack = require('webpack');
 module.exports = {
     mode:'production',
     entry: {
-        react: ['react','react-dom','react-router-dom','redux','react-redux'],
-        vendors:['lodash'],
+        react: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux','redux-thunk'],
         antd: ['antd'],
         lodash: ['lodash']
     },

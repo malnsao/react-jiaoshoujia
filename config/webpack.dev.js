@@ -26,16 +26,12 @@ module.exports = merge(common, {
         progress: true, // 显示打包进度
         before(app) {
             if (!isProxy) {
-                console.log('11111')
                 apiMocker(app, path.resolve(process.cwd(), "mock/api.js"), {
                     proxy: {},
                     changeHost: true,
                     watchContentBase: true
                 })
-            } else {
-                console.log('22222')
-            }
-            
+            } 
         }
     },
     module:{

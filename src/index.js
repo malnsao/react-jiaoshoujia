@@ -1,12 +1,18 @@
-
+import 'babel-polyfill';
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+// import { render } from 'react-dom'
 import './index.less'
 
 // import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
-import Home from './layouts'
+
+import BasicLayout from './layouts'
+
+import store from "@/redux/store";
+
+const action = type => store.dispatch({ type })
 
 import {
     BrowserRouter as Router,
@@ -16,26 +22,28 @@ import {
 
 import routeConfig from '@/router';
 
+import { Provider } from 'react-redux';
+// 定义渲染根组件标签的函数
+const render = () => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <BasicLayout 
+                value1={store.getState()}
+                onIncrement1={() => action('INCREMENT1')}
+                onDecrement1={() => action('DECREMENT1')} 
+                onIncrementAsync1={() =>action('INCREMENT_ASYNC1')}
+                onProfile={() => action('profile')}
+            />
+        </Provider>,
+        
+        document.getElementById('root')
+    )
+}
+// 初始化渲染
+render()
 
-ReactDOM.render((
-    // <HashRouter>
-    //     {routeConfig}
-    // </HashRouter>
-    <Home />
-),document.getElementById('root'))
-
-
-
-
-
-import('./async').then(({default:text}) => {
-    console.log(text)
-})
-
-import('./async1').then(({ default: text }) => {
-    console.log(text)
-})
-
+// 注册(订阅)监听, 一旦状态发生改变, 自动重新渲染
+store.subscribe(render)
 
 
 // import './asscts/1.png'
