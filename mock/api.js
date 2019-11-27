@@ -22,7 +22,7 @@ function fromJSONFile(filename) {
 
 const proxy = {
     'GET /api/profile': fromJSONFile('profile'),
-    'GET /api/profile1': (req, res) => {
+    'POST /api/profile1': (req, res) => {
         res.send({
             status: true,
             ifLogin: true,

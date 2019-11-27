@@ -9,31 +9,7 @@ class Album extends PureComponent {
         
     }
 
-    componentDidMount(){
-        this.hanle()
-    }
-
-    hanle = () => {
-        // // fetch('/api/profile')
-        // //     .then(function (response) {
-        // //         return response.json();
-        // //     })
-        // //     .then(function (myJson) {
-        // //         console.log(myJson);
-        // //     });
-
-        // fetch('/api/profile1')
-        //     .then(function (response) {
-        //         return response.json();
-        //     })
-        //     .then(function (myJson) {
-        //         console.log(myJson);
-        //     });
-
-        // // console.log('profile', profile)
-
-        // console.log('11111',request('/api/profile'))
-    }
+    componentDidMount(){}
 
     render() {
         // console.log(this.props)

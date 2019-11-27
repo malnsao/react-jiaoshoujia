@@ -1,41 +1,22 @@
 import 'babel-polyfill';
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-// import { render } from 'react-dom'
-import './index.less'
-
-// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-
-
 import BasicLayout from './layouts'
+// import store from "@/redux/store";
+// import store from "@/models";
+import store from "@/redux/sagas";
 
-import store from "@/redux/store";
-
-const action = type => store.dispatch({ type })
-
-import {
-    BrowserRouter as Router,
-    HashRouter,
-    Route
-} from "react-router-dom";
-
-import routeConfig from '@/router';
 
 import { Provider } from 'react-redux';
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+// import './index.less'
+
 // 定义渲染根组件标签的函数
 const render = () => {
     ReactDOM.render(
         <Provider store={store}>
-            <BasicLayout 
-                value1={store.getState()}
-                onIncrement1={() => action('INCREMENT1')}
-                onDecrement1={() => action('DECREMENT1')} 
-                onIncrementAsync1={() =>action('INCREMENT_ASYNC1')}
-                onProfile={() => action('profile')}
-            />
+            <BasicLayout />
         </Provider>,
-        
         document.getElementById('root')
     )
 }

@@ -5,8 +5,6 @@
 
 import { createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
-// 引入异步组件
-import thunk from 'redux-thunk'
 
 // 引入reducer,因为当前只有一个函数,先采用解构方法引入
 
@@ -16,8 +14,6 @@ import reducers from '@/redux/reducers'
 
 import createSagaMiddleware from 'redux-saga'
 
-// import mySaga from './sagas'
-// import { helloSaga, watchIncrementAsync } from './sagas'
 import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -29,5 +25,6 @@ const store = createStore(
     ), // 使用中间件
 )
 sagaMiddleware.run(rootSaga)
-console.log(store)
+
+// console.log(store)
 export default store;
