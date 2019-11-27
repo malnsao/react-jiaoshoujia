@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga'
 import { put, takeEvery, all } from 'redux-saga/effects'
-import request from '@/util/request';
+import { profile} from '@/services/api';
 
 
 function* helloSaga() {
@@ -15,7 +15,7 @@ function* incrementAsync() {
 
 function* watchIncrementAsync() {
     yield takeEvery('INCREMENT_ASYNC1', incrementAsync)
-    let a = yield request('/api/profile')
+    let a = yield profile()
     console.log('a',a)
 }
 

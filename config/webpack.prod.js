@@ -20,7 +20,7 @@ module.exports = merge(common, {
     //4.0配置
     optimization: {
         usedExports: true,
-        runtimeChunk: "single", // webpack运行时代码单独提取为一个包
+        // runtimeChunk: "single", // webpack运行时代码单独提取为一个包
         splitChunks: {
             chunks: "all",   // 表示哪些代码需要优化，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为async
             minSize: 30000,  //  表示在压缩前的最小模块大小，默认为30000
@@ -48,11 +48,11 @@ module.exports = merge(common, {
                 //     minChunks: 1,
                 //     minSize: 0
                 // },
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true  // 如果当前代码块包含的模块已经有了，就不在产生一个新的代码块
-                }
+                // default: {
+                //     minChunks: 2,
+                //     priority: -20,
+                //     reuseExistingChunk: true  // 如果当前代码块包含的模块已经有了，就不在产生一个新的代码块
+                // }
             }
         },
         minimize: true,

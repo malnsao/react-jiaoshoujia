@@ -1,4 +1,4 @@
-import langMap from '@/i18n';
+import langMap from '../i18n';
 
 
 const DATE_FORMAT = {year: 'numeric', month: 'short', day: 'numeric'};

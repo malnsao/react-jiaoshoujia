@@ -8,7 +8,7 @@ const Header = asyncComponent(() => import('./Header'))
 const Content = asyncComponent(() => import('./Content'))
 const Footer = asyncComponent(() => import('./Footer'))
 
-import { incrementCreate, decrementCreate, incrementCreatorAsync, basketAsync } from "@/redux/actions";
+import { incrementCreate, decrementCreate, incrementCreatorAsync } from "@/redux/actions";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 
@@ -23,7 +23,7 @@ class BasicLayout extends React.PureComponent {
     }
 
     componentDidMount(){
-        this.props.basketAsync();
+        // this.props.basketAsync();
     }
 
     // 点击增加
@@ -42,14 +42,14 @@ class BasicLayout extends React.PureComponent {
 
     }
     // 异步操作延时加1
-    incrementAsync = () => {
-        let number = this.select.value * 1
+    // incrementAsync = () => {
+    //     let number = this.select.value * 1
 
-        setTimeout(() => {
-            this.props.incrementCreate(number)
-            // this.props.store.dispatch(incrementCreate(number))
-        }, 1000)
-    }
+    //     setTimeout(() => {
+    //         this.props.incrementCreate(number)
+    //         // this.props.store.dispatch(incrementCreate(number))
+    //     }, 1000)
+    // }
 
     render() {
         const { counter, getData } = this.props.obj
@@ -75,17 +75,17 @@ class BasicLayout extends React.PureComponent {
                     </select>&nbsp;
                     <button onClick={this.increment}>点击增加</button>&nbsp;
                     <button onClick={this.decrement}>点击减少</button>&nbsp;
-                    <button onClick={this.incrementAsync}>延时1秒增加</button>
+                    {/* <button onClick={this.incrementAsync}>延时1秒增加</button> */}
                     <div>
                         <h4>模拟接口数据</h4>
                         {/* <div>{getData.name}</div> */}
-                        {
+                        {/* {
                             getData.lenth > 0 && getData.map((k, v) => {
                                 return (
                                     <li key={v}>{k.name}</li>
                                 )
                             })
-                        }
+                        } */}
                     </div>
                 </div>
                 <div>
@@ -113,7 +113,7 @@ class BasicLayout extends React.PureComponent {
 }
 export default connect(
     state => ({ obj: state }),  // 这个必须是函数
-    { incrementCreate, decrementCreate, incrementCreatorAsync, basketAsync } // 这是个对象啊 
+    { incrementCreate, decrementCreate, incrementCreatorAsync } // 这是个对象啊 
 )(BasicLayout) // 这样写以后导出的就不是App组件，而是被connect包装成了一个新的组件
 
 

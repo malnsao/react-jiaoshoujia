@@ -28,22 +28,22 @@ export const incrementCreatorAsync = (number) => {
     }
 }
 // 先写 获取接口信息的同步的action
-const getBall = (arr) => ({ type: BALL, arr })
+// const getBall = (arr) => ({ type: BALL, arr })
 
 // 模拟异步调接口
-export const basketAsync = () => {
-    return dispatch => {
-        // 模拟调接口，最后得到的数据
+// export const basketAsync = () => {
+//     return dispatch => {
+//         // 模拟调接口，最后得到的数据
         
-        const arr = [
-            { name: '足球', des: '我不会玩' },
-            { name: '羽毛球球', des: '真好打不懂啊' }
-        ]
-        setTimeout(() => {
-            dispatch(getBall(arr))
-        }, 2000)
-    }
-}
+//         const arr = [
+//             { name: '足球', des: '我不会玩' },
+//             { name: '羽毛球球', des: '真好打不懂啊' }
+//         ]
+//         setTimeout(() => {
+//             dispatch(getBall(arr))
+//         }, 2000)
+//     }
+// }
 
 // export const basketAsync = () => {
 //     return dispatch => {

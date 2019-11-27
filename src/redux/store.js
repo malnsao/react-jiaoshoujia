@@ -25,7 +25,7 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
     reducers,
     composeWithDevTools(
-        applyMiddleware(thunk, sagaMiddleware)
+        applyMiddleware( sagaMiddleware)
     ), // 使用中间件
 )
 sagaMiddleware.run(rootSaga)

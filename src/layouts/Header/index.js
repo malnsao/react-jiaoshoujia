@@ -6,7 +6,7 @@ import { Badge, Button, Form, Icon, Input, Layout, Menu, message, Modal, Popover
 
 import { locale, trans } from '@/util/i18n.js';
 
-import icon from '@/assets/icon.less';
+import icon from '@/assets/styles/icon.less';
 
 class Header extends React.Component {
 
@@ -61,7 +61,7 @@ class Header extends React.Component {
                 <div className={styles.wrapper}>
                     <a href="/" className={styles.logo}>
                         <div className={styles.logoImg}>
-                            <img src={require('../../assets/logo.png')} alt="" />
+                            <img src={require('@/assets/images/logo.png')} alt="" />
                         </div>
                         <div className={styles.logoTitle}>
                             <p>{trans('global.logo', '云谷相册')}</p>
