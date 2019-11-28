@@ -112,12 +112,13 @@ config.module = {
         {
             test: /\.ts$/,
             use: 'ts-loader',
+            exclude: /node_modules/
         }
     ]
 };
 
 config.resolve = {
-    // extensions: ['js'],
+    extensions: ['.js', '.ts'],
     alias: {
         '@': path.resolve(process.cwd(), 'src'),  // 配置相对路径
         // 'antd': path.resolve(process.cwd(), 'node_modules/antd'),

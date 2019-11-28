@@ -19,6 +19,10 @@ module.exports = merge(common, {
     ],
     //4.0配置
     optimization: {
+        // removeAvailableModules: false,
+        // removeEmptyChunks: false,
+        // splitChunks: false,
+
         usedExports: true,
         // runtimeChunk: "single", // webpack运行时代码单独提取为一个包
         splitChunks: {
