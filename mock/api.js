@@ -19,6 +19,13 @@ function fromJSONFile(filename) {
     };
 }
 
+// 获取是否开启反向代理的变量
+const isProxy = process.env.PROXY === 'true';
+
+console.log(isProxy)
+if (!isProxy) {
+
+}
 
 const proxy = {
     'GET /api/profile': fromJSONFile('profile'),
@@ -31,8 +38,20 @@ const proxy = {
                 url: 'test.png'
             }
         })
+    },
+    'GET /private/getUserCount': (req, res) => {
+        res.send({
+            status: true,
+            ifLogin: true,
+            content: {
+                uid: 101,
+                url: 'test.png'
+            }
+        })
     }
 }
+
+
 // module.exports = proxy;
 
 // console.log(process.env)

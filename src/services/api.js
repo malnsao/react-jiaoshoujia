@@ -13,3 +13,7 @@ export async function profile1(params) {
         body: params
     });
 }
+
+export async function test(params) {
+    return request(`/private/getUserCount?userId=1532`);
+}

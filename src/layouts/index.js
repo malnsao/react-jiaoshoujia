@@ -9,15 +9,19 @@ const Footer = asyncComponent(() => import('./Footer'))
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 
+// import { test } from '@/services/api'
+
+
 class BasicLayout extends React.PureComponent {
 
     constructor(props) {
         super(props);
     }
     componentDidMount(){
-        // this.props.onProfile();
-        this.test()
-    }
+      
+        // test()
+       
+    } 
 
     test = () => {
         let { dispatch } = this.props

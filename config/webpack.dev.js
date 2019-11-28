@@ -20,7 +20,14 @@ module.exports = merge(common, {
         open: true,
         overlay: true, // 编译出现错误时，将错误直接显示在页面上
         port: 8080,
-        // proxy: {},// 代理
+        proxy: {
+            '/private':{
+                target: 'http://127.0.0.1:7001',
+                // pathRewrite: { '^/private': '' },
+                // changeOrigin: true,     // target是域名的话，需要这个参数，
+                secure: false,          // 设置支持https协议的代理
+            }
+        },// 代理
         stats: 'errors-only',
         // useLocalIp: true
         progress: true, // 显示打包进度

@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return <div className="wrapper">
             <Router>
-                //传入默认路由配置文件
+                {/* //传入默认路由配置文件 */}
                 <RouteView defaultConfig={RouteConfig}></RouteView>
             </Router>
         </div>
