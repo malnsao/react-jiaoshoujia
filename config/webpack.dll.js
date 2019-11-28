@@ -5,11 +5,11 @@ const public = []
 const utilFiles = fs.readdirSync(path.join(process.cwd(), 'src/util'));
 const assetsStylesFiles = fs.readdirSync(path.join(process.cwd(), 'src/assets/styles'));
 
-// utilFiles.forEach(file => {
-//     public.push(
-//         path.resolve(process.cwd(), 'src/util', file)
-//     )
-// })
+utilFiles.forEach(file => {
+    public.push(
+        path.resolve(process.cwd(), 'src/util', file)
+    )
+})
 
 if (assetsStylesFiles[0] === '.DS_Store') assetsStylesFiles.splice(0, 1);
 assetsStylesFiles.forEach(file => {

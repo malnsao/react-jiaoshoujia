@@ -1,7 +1,5 @@
 
 import React from 'react';
-// import store from '@/redux/store';
-// import { Provider } from 'react-redux';
 import asyncComponent from '@/util/asyncComponent'
 
 const Header = asyncComponent(() => import('./Header'))
@@ -11,14 +9,11 @@ const Footer = asyncComponent(() => import('./Footer'))
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 
-
 class BasicLayout extends React.PureComponent {
 
     constructor(props) {
         super(props);
-        
     }
-
     componentDidMount(){
         // this.props.onProfile();
         this.test()
@@ -34,36 +29,28 @@ class BasicLayout extends React.PureComponent {
                 age: 3
             }
         })
-        // dispatch({
-        //     type: 'profile1'
-        // })
+        dispatch({
+            type: 'profile1'
+        })
+        dispatch({
+            type: 'profile10',
+            payload: {
+                name: 1,
+                id: 2,
+                age: 30
+            }
+        })
     }
 
     render() {
-        // const { counter, getData } = this.props.obj
-        // console.log('getData', getData);
-
         console.log('this.props', this.props)
-
-        // const { value1, onIncrement1, onDecrement1, onIncrementAsync1 } = this.props
         return (
-            // <Provider store={store}>
             <div>
                 <Header />
                 <Content />
                 <Footer />
-               
-                {/* <div>
-                    <p>
-                        Clicked: {value1.counter1} times
-                        <button onClick={onIncrement1}>+</button>
-                        <button onClick={onDecrement1}>-</button>
-                        <button onClick={onIncrementAsync1}>Increment async</button>
-                    </p>
-                </div> */}
             </div>
                
-            // </Provider>
         );
 
     }
@@ -76,7 +63,6 @@ class BasicLayout extends React.PureComponent {
       
     // }
 }
-
 
 export default connect(state => ({
     data: state,

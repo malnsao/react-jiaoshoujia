@@ -2,29 +2,22 @@
  *  引入 createStore方法 从redux ,用于创建 store 
  *  createStore()方法接收第一个参数是reducer
  **/
-
 import { createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
-
-// 引入reducer,因为当前只有一个函数,先采用解构方法引入
-
-import reducers from '@/redux/reducers'
-
-// 将 reducer作为参数 传入 createStore()方法
-
+import reducers from '@/redux/reducers/index'
 import createSagaMiddleware from 'redux-saga'
+import rootSaga from './sagas/index'
 
-import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
     reducers,
     composeWithDevTools(
-        applyMiddleware( sagaMiddleware)
+        applyMiddleware(sagaMiddleware)
     ), // 使用中间件
 )
 sagaMiddleware.run(rootSaga)
 
-// console.log(store)
+
 export default store;
