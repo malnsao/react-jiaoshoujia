@@ -4,7 +4,7 @@
  **/
 import { createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from '@/redux/reducers/index'
+import reducers from '@/models/reducers'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas/index'
 
@@ -18,6 +18,4 @@ const store = createStore(
     ), // 使用中间件
 )
 sagaMiddleware.run(rootSaga)
-
-
 export default store;

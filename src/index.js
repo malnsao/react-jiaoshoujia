@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import BasicLayout from './layouts'
-import store from "@/redux/store";
+import store from "@/models/store";
 // import store from "@/models";
 // import store from "@/redux/sagas";
 import { Provider } from 'react-redux';

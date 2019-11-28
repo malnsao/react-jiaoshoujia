@@ -8,7 +8,7 @@ const makePlugin = (config) => {
 
     const plugins = [
         new HtmlWebpackPlugin({
-            template: path.join(process.cwd(), './src/assets/template.html')
+            template: path.join(process.cwd(), './src/template.html')
         }),
     ]
     const files = fs.readdirSync(path.join(process.cwd(), 'dll'));

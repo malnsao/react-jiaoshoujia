@@ -29,7 +29,7 @@ module.exports = {
         antd: ['antd'],
         lodash: ['lodash'],
         public,
-        other: ['core-js','babel-polyfill','qs' ]
+        other: ['core-js', 'babel-polyfill', 'qs']
     },
     output: {
         filename: '[name].dll.js',

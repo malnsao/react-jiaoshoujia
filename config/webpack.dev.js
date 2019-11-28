@@ -13,7 +13,7 @@ module.exports = merge(common, {
         contentBase: path.join(process.cwd(), "dist"),
         compress: true,
         hot: true,
-        historyApiFallback: true,   // 解决手动输入url问题
+        // historyApiFallback: true,   // 解决手动输入url问题
         // lazy: true,
         // filename: "index.js",
         host: "0.0.0.0",

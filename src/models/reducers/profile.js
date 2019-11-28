@@ -1,4 +1,4 @@
-import { PROFILE_REDUCER } from '@/redux/types'
+import { PROFILE_REDUCER } from '@/models/types'
 
 export default {
     profile(state = [{ name: "ABC", des: "def" }], action) {
