@@ -10,7 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[name].css"

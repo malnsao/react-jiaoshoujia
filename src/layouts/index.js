@@ -12,35 +12,41 @@ import PropTypes from 'prop-types'
 
 
 class BasicLayout extends React.PureComponent {
-
     constructor(props) {
         super(props);
     }
     componentDidMount(){
-      
-        // test()
-       
+        this.test()
     } 
 
     test = () => {
         let { dispatch } = this.props
+
+        // dispatch({
+        //     type:'profile',
+        //     payload:{
+        //         name: 1,
+        //         id: 2, 
+        //         age: 3
+        //     }
+        // })
+        // dispatch({
+        //     type: 'profile1'
+        // })
+        // dispatch({
+        //     type: 'profile10',
+        //     payload: {
+        //         name: 1,
+        //         id: 2,
+        //         age: 30
+        //     }
+        // })
         dispatch({
-            type:'profile',
-            payload:{
-                name: 1,
-                id: 2, 
-                age: 3
-            }
-        })
-        dispatch({
-            type: 'profile1'
-        })
-        dispatch({
-            type: 'profile10',
+            type: 'watchGetProfile100',
             payload: {
                 name: 1,
                 id: 2,
-                age: 30
+                age: 3
             }
         })
     }

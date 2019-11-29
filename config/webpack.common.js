@@ -121,7 +121,7 @@ config.resolve = {
     extensions: ['.js', '.ts'],
     alias: {
         '@': path.resolve(process.cwd(), 'src'),  // 配置相对路径
-        // 'antd': path.resolve(process.cwd(), 'node_modules/antd'),
+        // 'react': path.resolve(process.cwd(), 'node_modules/react/dist/react.min.js')
     },
     // 在当前目录查找
     modules: [path.resolve(process.cwd(), 'node_modules')],
@@ -129,6 +129,18 @@ config.resolve = {
 // config.exclude = /node_modules/; // 排除不处理的目录
 
 config.plugins = makePlugin(config);
+config.stats = {
+    timings: true,
+    all: false,
+    // modules: true,
+    // maxModules: 0,
+    // errors: true,
+    // warnings: true,
+    // // our additional options
+    // moduleTrace: true,
+    // errorDetails: true
+}
+
 
 module.exports = config
 

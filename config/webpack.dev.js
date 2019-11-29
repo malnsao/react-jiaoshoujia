@@ -3,9 +3,11 @@ const common = require('./webpack.common.js');
 const path = require('path');
 const apiMocker = require('mocker-api');
 const webpack = require('webpack');
-
+const net = require('net')
 // 获取是否开启反向代理的变量
 const isProxy = process.env.PROXY === 'true';
+
+
 
 module.exports = merge(common, {
     devtool: 'inline-source-map',// 使用 source map
@@ -19,7 +21,7 @@ module.exports = merge(common, {
         host: "0.0.0.0",
         open: true,
         overlay: true, // 编译出现错误时，将错误直接显示在页面上
-        port: 8080,
+        port: 8008,
         proxy: {
             '/private':{
                 target: 'http://127.0.0.1:7001',

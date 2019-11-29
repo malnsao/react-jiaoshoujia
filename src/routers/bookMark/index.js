@@ -26,7 +26,7 @@ class BookMark extends PureComponent {
         return (
             <div>
                 {this.props.match.url}
-                <a href="#/bookMark/file">跳</a>
+                <a href="#/bookMark/file">跳1111</a>
                 {/* <Route path={`${this.props.match.url}/file`} component={File} /> */}
                 <RouterView routers={routers}></RouterView>
             </div>
